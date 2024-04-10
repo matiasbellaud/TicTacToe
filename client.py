@@ -7,7 +7,7 @@ from listToString import listToString
 from StringToListe import stringToListe
 
 host='192.168.229.110' #client ip
-port = 4005
+port = 4006
 
 server = ('192.168.229.30', 4000)
 
@@ -38,7 +38,7 @@ while True:
                 print("no cells left")
                 client.sendto(listToString(game).encode('utf-8'), server)
                 break
-    print(listToString(game))
+    os.system("clear")
     Display(game)
     client.sendto(listToString(game).encode('utf-8'), server)
     data, addr = client.recvfrom(1024)
