@@ -1,6 +1,6 @@
 import socket
 
-from Display import DisplayUserInterface
+from Display import Display
 from inputList import inputList
 
 def Main():
@@ -17,11 +17,11 @@ def Main():
     while isGame :
         client_socket, client_address = server.accept()
         donnees = client_socket.recv(1024).decode('utf-8')
-        DisplayUserInterface(donnees)
+        Display(donnees)
 
         liste = inputList(donnees,2)
         client.sendto(liste.encode('utf-8'), client)
-        DisplayUserInterface(donnees)
+        Display(donnees)
         
     client_socket.close()
     server.close()
