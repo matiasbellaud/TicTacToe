@@ -1,18 +1,21 @@
 import socket
 
 def Main():
-    typeOfPlayer = "host", # or client
-    if ( typeOfPlayer == "host") :
+    typeOfPlayer = "host" # or client
+    if  typeOfPlayer == "host":
 
-        host = '192.168.0.12' #Server ip
+        host = '127.0.0.1' #Server ip
         port = 4000
 
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.bind((host, port))
+        s.bind(('127.0.0.1', 4000))
+        # s.bind((host, port))
 
         print("Server Started")
         while True:
+            
             data, addr = s.recvfrom(1024)
+            print(addr)
             data = data.decode('utf-8')
             print("Message from: " + str(addr))
             print("From connected user: " + data)
@@ -25,8 +28,9 @@ def Main():
         
         server = ('192.168.0.12', 4000)
         
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.bind((host,port))
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.connect((host, port))
+        print ('Connexion vers ' + host + ':' + str(port) + ' reussie.')
         
         message = input("-> ")
         while message !='q':
