@@ -1,3 +1,4 @@
+import os
 import socket
 
 from Display import Display
@@ -8,7 +9,7 @@ from listToString import listToString
 
 def Main():
 
-    client = ('192.168.229.110', 4005)
+    client = ('192.168.229.110', 4006)
 
     server = socket.socket( socket.SOCK_DGRAM)
     
@@ -24,6 +25,7 @@ def Main():
         donnees = stringToListe(donnees)
         gameStatus = isGameEnd(donnees)
         if gameStatus != 0:
+            print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
             Display(donnees)
             match gameStatus:
                 case 2:
@@ -35,6 +37,7 @@ def Main():
                 case 3:
                     print("no cells left")
                     break
+        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         Display(donnees)
 
 
@@ -42,6 +45,8 @@ def Main():
         gameStatus = isGameEnd(donnees)
         if gameStatus != 0:
             client_socket.send(listToString(donnees).encode('utf-8'))
+            print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+            Display(donnees)
             match gameStatus:
                 case 2:
                     print("you have win")
@@ -52,7 +57,7 @@ def Main():
                 case 3:
                     print("no cells left")
                     break
-        print(listToString(donnees))
+        print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
         Display(donnees)
         client_socket.send(listToString(donnees).encode('utf-8'))
         
