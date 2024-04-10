@@ -1,7 +1,9 @@
 import socket
 
 from Display import Display
+from StringToListe import StringToListe
 from inputList import inputList
+from listToString import listToString
 
 def Main():
 
@@ -17,10 +19,14 @@ def Main():
     while isGame :
         client_socket, client_address = server.accept()
         donnees = client_socket.recv(1024).decode('utf-8')
+        
+        donnees = StringToListe(donnees)
+        print(donnees)
         Display(donnees)
 
         liste = inputList(donnees,2)
-        client.sendto(liste.encode('utf-8'), client)
+        liste = listToString(liste)
+        server.sendto(liste.encode('utf-8'), client)
         Display(donnees)
         
     client_socket.close()
