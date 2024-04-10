@@ -14,9 +14,7 @@ client.connect(server)
 print ('Connexion vers ' + host + ':' + str(port) + ' reussie.')
 
 game = [[0,0,0],[0,0,0],[0,0,0]]
-Display.Display(game)
 
-game = inputList.inputList(game,1)
 while True:
     Display.Display(game)
 

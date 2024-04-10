@@ -21,5 +21,3 @@ def Display(game):
     print("|1,2,3|")
     print("|4,5,6|")
     print("|7,8,9|")
-game = [[1,2,2],[0,1,0],[2,1,1]]
-DisplayUserInterface(game)
