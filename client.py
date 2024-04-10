@@ -7,7 +7,7 @@ from listToString import listToString
 from StringToListe import stringToListe
 
 host='192.168.229.110' #client ip
-port = 4006
+port = 4003
 
 server = ('192.168.229.30', 4000)
 
@@ -58,3 +58,4 @@ while True:
                 print("no cells left")
                 break
 
+client.close()
