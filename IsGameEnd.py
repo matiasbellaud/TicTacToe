@@ -2,7 +2,7 @@
 # return 2 if player 2 have win
 # return 3 if all cell are full
 # return 0 if the game is not over
-def IsGameEnd(game):
+def isGameEnd(game):
     for i in range(3):
         # check line
         if game[i][0] == game[i][1]  == game[i][2] != 0:

@@ -1,7 +1,8 @@
 import socket
 
 from Display import Display
-from StringToListe import StringToListe
+from IsGameEnd import isGameEnd
+from StringToListe import stringToListe
 from inputList import inputList
 from listToString import listToString
 
@@ -21,13 +22,37 @@ def Main():
         donnees = client_socket.recv(1024).decode('utf-8')
         
         donnees = StringToListe(donnees)
-        print(donnees)
+        gameStatus = IsGameEnd(donnees)
+        if gameStatus != 0:
+            match gameStatus:
+                case 1:
+                    print("you have win")
+                    break
+                case 2:
+                    print("the other have win")
+                    break
+                case 3:
+                    print("no cells left")
+                    break
         Display(donnees)
 
-        liste = inputList(donnees,2)
-        liste = listToString(liste)
-        server.sendto(liste.encode('utf-8'), client)
-        Display(donnees)
+
+        donnees = inputList.inputList(donnees,2)
+        gameStatus = IsGameEnd=(donnees)
+        if gameStatus != 0:
+            match gameStatus:
+                case 1:
+                    print("you have win")
+                    break
+                case 2:
+                    print("the other have win")
+                    break
+                case 3:
+                    print("no cells left")
+                    break
+        print(listToString.listToString(donnees))
+        Display.Display(donnees)
+        server.sendto(listToString.listToString(donnees).encode('utf-8'), server)
         
     client_socket.close()
     server.close()
