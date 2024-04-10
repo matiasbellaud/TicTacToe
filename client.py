@@ -1,7 +1,7 @@
 import socket
 
 host='192.168.229.110' #client ip
-port = 400
+port = 4005
 
 server = ('192.168.229.30', 4000)
 
