@@ -18,7 +18,7 @@ print ('Connexion vers ' + host + ':' + str(port) + ' reussie.')
 game = [[0,0,0],[0,0,0],[0,0,0]]
 
 while True:
-    Display.Display(game)
+    Display(game)
 
     game = inputList(game,1)
     gameStatus = IsGameEnd(game)
@@ -34,7 +34,7 @@ while True:
                 print("no cells left")
                 break
     print(listToString(game))
-    Display.Display(game)
+    Display(game)
     client.sendto(listToString(game).encode('utf-8'), server)
     data, addr = client.recvfrom(1024)
     os.system("clear")
