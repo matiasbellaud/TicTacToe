@@ -14,7 +14,7 @@ def isGameEnd(game):
     if game[0][0] == game[1][1] == game[2][2] != 0:
         return game[0][0]
     if game[0][2] == game[1][1] == game[2][0] != 0:
-        return game[0][0]
+        return game[0][2]
     # check if there is empty cells
     for line in game:
         for cell in line:
