@@ -1,4 +1,4 @@
-def inputList(liste):
+def StringToListe(liste):
     liste2 = [[0,0,0],[0,0,0],[0,0,0]]
     index=0
     for i in range(3) :
