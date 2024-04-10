@@ -3,6 +3,7 @@ import Display
 import inputList
 import IsGameEnd
 import os
+import TicTacToe.listToString as listToString
 
 host='192.168.229.110' #client ip
 port = 4005
@@ -32,7 +33,7 @@ while True:
                 print("no cells left")
                 break
     
-    client.sendto(game.encode('utf-8'), server)
+    client.sendto(listToString.listToString(game).encode('utf-8'), server)
 
     os.system("clear")
     data, addr = client.recvfrom(1024)
