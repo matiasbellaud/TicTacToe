@@ -7,7 +7,12 @@ def inputList(liste, player):
                for j in range(3): 
                    tic = tic + 1
                    if tic == int(message):
-                       liste[i][j] = player              
+                       if liste[i][j] == 0 :
+                            liste[i][j] = player
+                       else :
+                            print("entré non valide")
+                            return inputList(liste,player)
+                                    
         else :
             print("entré non valide")
             return inputList(liste,player)
