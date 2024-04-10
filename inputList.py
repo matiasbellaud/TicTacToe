@@ -1,4 +1,4 @@
-def inputList(liste: list, player) -> list:
+def inputList(liste, player):
     message = input("nombre entre 1 et 9 -> ")
     if message.isdigit() == True :
         if int(message) <= 9 and int(message) >= 1 :

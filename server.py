@@ -1,5 +1,6 @@
 import socket
 
+from Display import DisplayUserInterface
 from inputList import inputList
 
 def Main():
@@ -10,12 +11,18 @@ def Main():
     server.bind(('192.168.229.30', 4000))
     server.listen(200)
 
-    client_socket, client_address = server.accept()
-    donnees = client_socket.recv(1024).decode('utf-8')
-    print("Données reçues du client :", donnees)
-    message = input("-> ")
-    server.sendto(message.encode('utf-8'), client)
+    
 
+    isGame = True
+    while isGame :
+        client_socket, client_address = server.accept()
+        donnees = client_socket.recv(1024).decode('utf-8')
+        DisplayUserInterface(donnees)
+
+        liste = inputList(donnees,2)
+        client.sendto(liste.encode('utf-8'), client)
+        DisplayUserInterface(donnees)
+        
     client_socket.close()
     server.close()
 
